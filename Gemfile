@@ -9,6 +9,10 @@ gem "rails", "~> 7.0.6"
 # devise
 gem "devise"
 
+#carrierwave
+gem 'carrierwave'
+
+
 #rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
 

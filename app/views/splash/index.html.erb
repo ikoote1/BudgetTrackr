@@ -1,16 +1,17 @@
 <!-- app/views/splash/index.html.erb -->
-<h1>BudgetTrackr</h1>
 <ul class="nav-items">
 <% if user_signed_in? %>
-<li>
   <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn' %>
-</li>
+
 <% else %>
-<li>
+    <div class="splash">
+    <div class= "nam">
+    <h1>BudgetTrackr</h1>
+    </div>
+    <div class= "login-links">
   <%= link_to 'Login', new_user_session_path, class: 'btn' %>
-</li>
-<li>
+
   <%= link_to 'Sign-up', new_user_registration_path, class: 'btn' %>
-</li>
+    </div>
+    </div>
 <% end %>
-</ul>
