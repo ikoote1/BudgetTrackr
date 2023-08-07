@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "home#index"
+  root to: "splash#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
