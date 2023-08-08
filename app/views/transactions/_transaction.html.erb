@@ -1,0 +1,17 @@
+<div id="<%= dom_id transaction %>">
+  <p>
+    <strong>Name:</strong>
+    <%= transaction.name %>
+  </p>
+
+  <p>
+    <strong>Amount:</strong>
+    <%= transaction.amount %>
+  </p>
+
+  <p>
+  <strong>Categories:</strong>
+  <%= @transaction.categories.map(&:name).join(', ') %>
+</p>
+
+</div>
