@@ -4,14 +4,13 @@
   <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn' %>
 
 <% else %>
-    <div class="splash">
-    <div class= "nam">
-    <h1>BudgetTrackr</h1>
-    </div>
-    <div class= "login-links">
-  <%= link_to 'Login', new_user_session_path, class: 'btn' %>
-
-  <%= link_to 'Sign-up', new_user_registration_path, class: 'btn' %>
-    </div>
-    </div>
+<div class="splash">
+<div class="nam">
+  <h1>BudgetTrack</h1>
+</div>
+<div class="login-links">
+  <%= link_to 'LOG IN', new_user_session_path, class: 'btn-a' %>
+  <%= link_to 'SIGN UP', new_user_registration_path, class: 'btn' %>
+</div>
+</div>
 <% end %>

@@ -1,26 +1,24 @@
-<h2>Log in</h2>
-
+<div class="contain">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="back-lin">
+    <%= link_to :back do %>
+      <%= image_tag('icons8-left-24 (1).png') %>
+    <% end %>
+    <h2>LOGIN</h2>
+    <div class="acti">
+      <%= f.submit "Next" %>
     </div>
-  <% end %>
+  </div>
+  <div class="field">
+    <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email" %>
+  </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="field">
+    <%= f.password_field :password, placeholder: "Password", autocomplete: "current-password" %>
   </div>
 <% end %>
+<div class="blu">
+<%= link_to "Forgot your password?", new_password_path(resource_name) %>
+</div>
 
-<%= render "devise/shared/links" %>
+</div>
