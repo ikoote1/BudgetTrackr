@@ -23,7 +23,7 @@
 
 <div class="field">
   <%= form.label :categorized_category_ids %>
-  <%= form.collection_select :categorized_category_ids, Category.all, :id, :name, {}, { multiple: true } %>
+  <%= form.collection_select :categorized_category_ids, Category.all, :id, :name, {}, { multiple: true, include_blank: false } %>
 </div>
 
 <br>

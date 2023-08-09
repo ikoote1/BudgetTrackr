@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   def index
     if params[:category_id]
       @category = Category.find(params[:category_id])
-      @transactions = @category.categorized_categories.map(&:transaction)
+      @transactions = @category.transactions
       if @transactions.empty?
         redirect_to new_transaction_path(category_id: @category.id)
       end
@@ -30,8 +30,9 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
+    puts params.inspect
     @transaction = current_user.transactions.build(transaction_params)
-    @transaction.categorized_category_ids = params[:transaction][:categorized_category_ids] # Assign selected categories
+    @transaction.categorized_category_ids.reject!(&:blank?) # Remove empty strings from the array
   
     respond_to do |format|
       if @transaction.save
@@ -43,6 +44,7 @@ class TransactionsController < ApplicationController
       end
     end
   end
+  
   
 
   # PATCH/PUT /transactions/1 or /transactions/1.json
