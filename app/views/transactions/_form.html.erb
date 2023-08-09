@@ -22,10 +22,9 @@
   </div>
 
   <div class="field">
-  <%= form.label :category_ids %>
-  <%= form.collection_select :categorized_category_ids, current_user.categories, :id, :name, {}, { multiple: true } %>
-</div>
-
+    <%= form.label :category_ids %>
+    <%= form.collection_select :category_ids, current_user.categories, :id, :name, {}, { multiple: true } %>
+  </div>
 
   <div>
     <%= form.submit %>

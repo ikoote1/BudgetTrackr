@@ -3,8 +3,17 @@ class TransactionsController < ApplicationController
 
   # GET /transactions or /transactions.json
   def index
-    @transactions = Transaction.all
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+      @transactions = @category.transactions
+      if @transactions.empty?
+        redirect_to new_transaction_path(category_id: @category.id)
+      end
+    else
+      @transactions = Transaction.all
+    end
   end
+  
 
   # GET /transactions/1 or /transactions/1.json
   def show
