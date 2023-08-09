@@ -69,3 +69,24 @@ form {
  color: #222;
   text-decoration: none;
 }
+
+/* Styles for the button */
+.btnn {
+  background-color: #3778c2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btnn::-webkit-input-placeholder {
+  color: white;
+}
+
+.btnn:-ms-input-placeholder {
+  color: white;
+}
+
+.btnn::placeholder {
+  color: white;
+}

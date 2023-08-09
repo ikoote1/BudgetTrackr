@@ -1,14 +1,18 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<div id="categories">
+<div id="categories" class="contain">
+<div class="back-lin">
+<%= link_to :back do %>
+  <%= image_tag('icons8-left-24 (1).png') %>
+<% end %>
+<h2>CATEGORIES</h2>
+<div class="acti">
+<%= button_to "OUT", destroy_user_session_path, method: :delete, class: "btnn" %>
+</div>
+</div>
   <% @categories.each do |category| %>
     <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
   <% end %>
+  <div class="new-c">
+  <%= link_to "New category", new_category_path %>
+  </div>
 </div>
 
-<%= link_to "New category", new_category_path %>
