@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   def index
     if params[:category_id]
       @category = Category.find(params[:category_id])
-      @transactions = @category.transactions
+      @transactions = @category.categorized_transactions
       if @transactions.empty?
         redirect_to new_transaction_path(category_id: @category.id)
       end
