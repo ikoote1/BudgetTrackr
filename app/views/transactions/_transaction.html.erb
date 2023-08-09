@@ -10,8 +10,12 @@
   </p>
 
   <p>
-  <strong>Categories:</strong>
-  <%= @transaction.categories.map(&:name).join(', ') %>
-</p>
+    <strong>Categories:</strong>
+    <% if transaction.categories.any? %>
+      <%= transaction.categories.map(&:name).join(', ') %>
+    <% else %>
+      No categories assigned
+    <% end %>
+  </p>
 
 </div>

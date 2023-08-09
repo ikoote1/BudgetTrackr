@@ -4,7 +4,7 @@
 
 <div id="transactions">
   <% @transactions.each do |transaction| %>
-    <%= render transaction %>
+    <%= render partial: 'transaction', locals: { transaction: transaction } %>
     <p>
       <%= link_to "Show this transaction", transaction %>
     </p>

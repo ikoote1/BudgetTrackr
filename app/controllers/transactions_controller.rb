@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   def index
     if params[:category_id]
       @category = Category.find(params[:category_id])
-      @transactions = @category.transactions
+      @transactions = @category.categorized_categories.map(&:transaction)
       if @transactions.empty?
         redirect_to new_transaction_path(category_id: @category.id)
       end
@@ -31,7 +31,8 @@ class TransactionsController < ApplicationController
   # POST /transactions or /transactions.json
   def create
     @transaction = current_user.transactions.build(transaction_params)
-
+    @transaction.categorized_category_ids = params[:transaction][:categorized_category_ids] # Assign selected categories
+  
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to transaction_url(@transaction), notice: "Transaction was successfully created." }
@@ -42,6 +43,7 @@ class TransactionsController < ApplicationController
       end
     end
   end
+  
 
   # PATCH/PUT /transactions/1 or /transactions/1.json
   def update
@@ -74,6 +76,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:name, :amount, category_ids: [])
+      params.require(:transaction).permit(:name, :amount, categorized_category_ids: [])
     end
 end
