@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
       @item = Item.new
       @categories = Category.where(user_id: current_user.id)
     else
-      redirect_to '/'
+      redirect_to categories_path
     end
   end
 

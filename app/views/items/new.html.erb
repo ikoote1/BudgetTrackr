@@ -1,14 +1,14 @@
-<%= form_with model: @item, url: categorizations_path,  method: :post do | form | %>
+<%= form_with model: @item, url: category_items_path,  method: :post do | form | %>
   <div class="back-lin">
   <%= link_to categories_path(@category) do %>
     <%= image_tag('icons8-left-24 (1).png') %>
   <% end %>
   <h2>NEW CATEGORY</h2>
   <div class="acti">
-  <%= form.submit "Next", class: "btnn" %>
+  <%= form.submit "Save", class: "btnn" %>
   </div>
   </div>
-  <% if item.errors.any? %>
+  <% if @item.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
@@ -30,7 +30,7 @@
 <div>
   <p> Choose One or More Balance Sheets to Add This Item</p>
   <div class="choos">
-   <% @balances.each do |balance| %>
+   <% @categories.each do |category| %>
               <% checked = category.id.to_i == params[:category_id].to_i ? { checked: true } : {} %>
               <div class="flex-choos">
                   <%= form.check_box :selected_ids, { multiple: true}.merge(checked), category.id, nil%>
