@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   def index
     if params[:category_id]
       @category = Category.find(params[:category_id])
-      @transactions = @category.categorized_transactions
+      @transactions = @category.categorized_transactions # Update this line
       if @transactions.empty?
         redirect_to new_transaction_path(category_id: @category.id)
       end
@@ -13,7 +13,6 @@ class TransactionsController < ApplicationController
       @transactions = Transaction.all
     end
   end
-  
 
   # GET /transactions/1 or /transactions/1.json
   def show
