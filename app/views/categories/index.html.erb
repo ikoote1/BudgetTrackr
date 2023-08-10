@@ -9,7 +9,24 @@
 </div>
 </div>
   <% @categories.each do |category| %>
-    <%= render category %>
+    <%= link_to "/categories/#{category.id}" do %>
+  <div id="<%= dom_id category %>" class="categories-container">
+    <p>
+      <%= image_tag category.icon.url %>
+      <br>
+      <%= category.created_at.strftime('%d-%b-%Y') %>
+    </p>
+
+    <p>
+      <%= category.name.capitalize %>
+    </p>
+
+    <p>
+    $<%= category.items.map { |item| item.amount }.sum %>
+    </p>
+  </div>
+<% end %>
+
   <% end %>
   <div class="new-c">
   <%= link_to "New category", new_category_path %>

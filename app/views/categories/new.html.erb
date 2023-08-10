@@ -1,4 +1,34 @@
 <div class="contain">
-<%= render "form", category: @category %>
+<%= form_with(model: @category) do |form| %>
+    <div class="back-lin">
+  <%= link_to categories_path do %>
+    <%= image_tag('icons8-left-24 (1).png') %>
+  <% end %>
+  <h2>NEW CATEGORY</h2>
+  <div class="acti">
+  <%= form.submit "Next", class: "btnn" %>
+  </div>
+  </div>
+  <% if @category.errors.any? %>
+  <div style="color: red">
+    <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+    <ul>
+      <% @category.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+    <div class="field">
+      <%= form.text_field :name, placeholder: "Name", autofocus: true %>
+    </div>
+  
+    <div>
+      <%= form.label :icon, style: "display: block" %>
+      <%= form.file_field :icon %>
+    </div>
+  <% end %>
+  
 </div>
 

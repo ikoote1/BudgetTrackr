@@ -1,9 +1,44 @@
-<h1>New item</h1>
+<%= form_with model: @item, url: categorizations_path,  method: :post do | form | %>
+  <div class="back-lin">
+  <%= link_to categories_path(@category) do %>
+    <%= image_tag('icons8-left-24 (1).png') %>
+  <% end %>
+  <h2>NEW CATEGORY</h2>
+  <div class="acti">
+  <%= form.submit "Next", class: "btnn" %>
+  </div>
+  </div>
+  <% if item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-<%= render "form", item: @item %>
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<br>
+  <div class="field">
+    <%= form.text_field :name %>
+  </div>
 
+  <div class="field">
+    <%= form.text_field :amount %>
+  </div>
 <div>
-  <%= link_to "Back to items", items_path %>
+  <p> Choose One or More Balance Sheets to Add This Item</p>
+  <div class="choos">
+   <% @balances.each do |balance| %>
+              <% checked = category.id.to_i == params[:category_id].to_i ? { checked: true } : {} %>
+              <div class="flex-choos">
+                  <%= form.check_box :selected_ids, { multiple: true}.merge(checked), category.id, nil%>
+                  
+                  <%= label_tag "category_#{category.id}", category.name %>
+              </div>
+    <% end %>
+     </div>
 </div>
+<% end %>
+
