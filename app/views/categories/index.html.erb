@@ -13,11 +13,11 @@
   <div id="<%= dom_id category %>" class="categories-container">
     <div class="icon">
     <%= image_tag category.icon.url %>
-    <p>
-    <%= category.name.capitalize %>
+    <div class="nams">
+    <p class="namz"><%= category.name.capitalize %></p>
     <br>
-    <%= category.created_at.strftime('%d-%b-%Y') %>
-  </p>
+    <p class="dat"><%= category.created_at.strftime('%d-%b-%Y') %></p>
+  </div>
     </div>
 
   <p>

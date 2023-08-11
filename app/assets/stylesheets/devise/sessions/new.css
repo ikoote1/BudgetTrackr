@@ -1,8 +1,9 @@
-.contain{
-width: 100%;
-background-color: #f0f0f0;
-height: 100vh;
+.contain {
+  width: 100%;
+  background-color: #f0f0f0;
+  height: 100vh;
 }
+
 .back-lin {
   display: flex;
   flex-direction: row;
@@ -36,6 +37,7 @@ h2 {
 .field {
   width: 100%;
   border-bottom: 1px solid #ccc;
+
   /* margin-bottom: 40px; */
   position: relative;
   height: 60px;
@@ -56,6 +58,7 @@ h2 {
 
 form {
   width: 100%;
+
   /* max-width: 400px; */
   margin: 0 auto;
 }
@@ -65,8 +68,8 @@ form {
   margin-left: 35%;
 }
 
-.blu a{
- color: #222;
+.blu a {
+  color: #222;
   text-decoration: none;
 }
 
