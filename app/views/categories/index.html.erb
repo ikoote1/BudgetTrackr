@@ -11,19 +11,18 @@
   <% @categories.each do |category| %>
     <%= link_to "/categories/#{category.id}" do %>
   <div id="<%= dom_id category %>" class="categories-container">
+    <div class="icon">
+    <%= image_tag category.icon.url %>
     <p>
-      <%= image_tag category.icon.url %>
-      <br>
-      <%= category.created_at.strftime('%d-%b-%Y') %>
-    </p>
+    <%= category.name.capitalize %>
+    <br>
+    <%= category.created_at.strftime('%d-%b-%Y') %>
+  </p>
+    </div>
 
-    <p>
-      <%= category.name.capitalize %>
-    </p>
-
-    <p>
-    $<%= category.items.map { |item| item.amount }.sum %>
-    </p>
+  <p>
+  $<%= category.items.map { |item| item.amount }.sum %>
+  </p>
   </div>
 <% end %>
 

@@ -12,8 +12,10 @@
 <div>
 <div>
     <div class="categories-container">
+    <div class="icon">
          <img src=<%= @category.icon %> alt=<%= @category.name%> >
         <p> <%= @category.name.capitalize%></p>
+   </div>
    </div>
    <% total= 0%>
         <% @category.items.each do |item| %>
@@ -27,7 +29,7 @@
         <% total += item.amount%>
         <% end %>
         <div class="flex-bold2">
-        <p">TOTAL PAYMENT</p>
+        <p>TOTAL PAYMENT</p>
         <p>$<%= total%></p>
         </div>
 </div>
