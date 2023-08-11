@@ -1,10 +1,43 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @category %>
+<div id="categories" class="contain">
+<div class="back-lin">
+<%= link_to categories_path do %>
+  <%= image_tag('icons8-left-24 (1).png') %>
+<% end %>
+<h2>DETAILS</h2>
+<div class="acti">
+<%= button_to "OUT", destroy_user_session_path, method: :delete, class: "btnn" %>
+</div>
+</div>
 
 <div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
+<div>
+    <div class="categories-container">
+    <div class="icon">
+         <img src=<%= @category.icon %> alt=<%= @category.name%> >
+        <p> <%= @category.name.capitalize%></p>
+   </div>
+   </div>
+   <% total= 0%>
+        <% @category.items.each do |item| %>
+        <div class="flex-bold">
+        <div class="flex-bold1">
+            <p><%= item.name %></p>
+            <p>$<%= item.amount %></p>
+        </div>
+            <p><%= item.created_at.strftime('%d-%b-%Y') %> <p>
+        </div>
+        <% total += item.amount%>
+        <% end %>
+        <div class="flex-bold2">
+        <p>TOTAL PAYMENT</p>
+        <p>$<%= total%></p>
+        </div>
+</div>
+</div>
 
-  <%= button_to "Destroy this category", @category, method: :delete %>
+
+<div class="new-c">
+<%= link_to 'New Category Item', new_category_item_path(@category.id) %>
+</div>
+
 </div>
