@@ -9,7 +9,7 @@ gem 'rails', '~> 7.0.6'
 # devise
 gem 'devise'
 
-#rspec
+# rspec
 gem 'rspec-rails'
 
 # carrierwave
