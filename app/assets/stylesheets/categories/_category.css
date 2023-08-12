@@ -63,39 +63,4 @@ a:hover {
   color: #3778c2;
 }
 
-.flex-bold {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 
-  /* align-items: center; */
-  height: 80px;
-  background-color: white;
-  width: 92%;
-  margin: 2%;
-  padding: 2%;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.flex-bold1 {
-  font-size: 20px;
-}
-
-.flex-bold2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  background-color: #3778c2;
-  color: white;
-  width: 80%;
-  margin: 2%;
-  padding-left: 8%;
-  padding-right: 8%;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}

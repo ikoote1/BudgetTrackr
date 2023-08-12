@@ -1,23 +1,27 @@
-<div id="categories" class="contain">
-<div class="back-lin">
+<div id="categories" class="contains">
+<div class="back-lins">
 <%= link_to categories_path do %>
   <%= image_tag('icons8-left-24 (1).png') %>
 <% end %>
-<h2>DETAILS</h2>
-<div class="acti">
+<div class="acent">
+<h2>TRANSACTIONS</h2>
+<p>Most Ancient</p>
+</div>
+<div class="actis">
 <%= button_to "OUT", destroy_user_session_path, method: :delete, class: "btnn" %>
 </div>
 </div>
+<% total = 0 %>
+<% @category.items.each do |item| %>
+  <% total += item.amount %>
+<% end %>
+
+<div class="flex-bold2">
+  <p>Gift Credit</p>
+  <p>$<%= total %></p>
+</div>
 
 <div>
-<div>
-    <div class="categories-container">
-    <div class="icon">
-         <img src=<%= @category.icon %> alt=<%= @category.name%> >
-        <p> <%= @category.name.capitalize%></p>
-   </div>
-   </div>
-   <% total= 0%>
         <% @category.items.each do |item| %>
         <div class="flex-bold">
         <div class="flex-bold1">
@@ -26,18 +30,12 @@
         </div>
             <p><%= item.created_at.strftime('%d-%b-%Y') %> <p>
         </div>
-        <% total += item.amount%>
         <% end %>
-        <div class="flex-bold2">
-        <p>TOTAL PAYMENT</p>
-        <p>$<%= total%></p>
-        </div>
-</div>
 </div>
 
 
-<div class="new-c">
-<%= link_to 'New Category Item', new_category_item_path(@category.id) %>
+<div class="new-cs">
+<p class="new-s"><%= link_to 'New Category Item', new_category_item_path(@category.id) %></p>
 </div>
 
 </div>
